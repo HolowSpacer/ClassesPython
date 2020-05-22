@@ -1,0 +1,143 @@
+class animal:
+    food = 0
+    name = None
+    weight = None
+    def feed(self, quanity):
+        self.food += quanity
+
+class milk_carrier(animal):
+    milk = 3
+    def get_milk(self):
+        self.milk = 0
+class cow(milk_carrier):
+    voice = 'moo'
+class goat(milk_carrier):
+    voice = 'goat_beee'
+
+
+class ship(animal):
+    voice = 'ship_beee'
+    wool = 2
+    def get_wool(self):
+        self.wool -= 1
+
+
+class egg_carrier(animal):
+    eggs = 3
+    def get_eggs(self):
+        self.eggs = 0
+class chicken(egg_carrier):
+    voice = 'chicken_kudah'
+class goose(egg_carrier):
+    voice = 'goose_krya'
+class duck(egg_carrier):
+    voice = 'duck_krya'
+
+
+list_animals = []
+
+cow_man = cow()
+cow_man.name = 'Манька'
+cow_man.weight = 250
+list_animals.append(cow_man)
+if cow_man.food < 60:
+    cow_man.feed(40)
+if cow_man.milk > 0:
+    cow_man.get_milk()
+
+goose_grey = goose()
+goose_grey.name = 'Серый'
+goose_grey.weight = 5
+list_animals.append(goose_grey)
+if goose_grey.food < 60:
+    goose_grey.feed(40)
+if goose_grey.eggs > 0:
+    goose_grey.get_eggs()
+
+goose_white = goose()
+goose_white.name = 'Белый'
+goose_white.weight = 4
+list_animals.append(goose_white)
+if goose_white.food < 60:
+    goose_white.feed(40)
+if goose_white.eggs > 0:
+    goose_white.get_eggs()
+
+ship_barashek = ship()
+ship_barashek.name = 'Барашек'
+ship_barashek.weight = 190
+list_animals.append(ship_barashek)
+if ship_barashek.food < 60:
+    ship_barashek.feed(40)
+if ship_barashek.wool > 0:
+    ship_barashek.get_wool()
+
+
+ship_kudr = ship()
+ship_kudr.name = 'Кудрявый'
+ship_kudr.weight = 190
+list_animals.append(ship_kudr)
+if ship_kudr.food < 60:
+    ship_kudr.feed(40)
+if ship_kudr.wool > 0:
+    ship_kudr.get_wool()
+
+chick_koko = chicken()
+chick_koko.name = 'Ко-ко'
+chick_koko.weight = 1
+list_animals.append(chick_koko)
+if chick_koko.food < 60:
+    chick_koko.feed(40)
+if chick_koko.eggs > 0:
+    chick_koko.get_eggs()
+
+chick_kukar = chicken()
+chick_kukar.name = 'Кукареку'
+chick_kukar.weight = 2
+list_animals.append(chick_kukar)
+if chick_kukar.food < 60:
+    chick_kukar.feed(40)
+if chick_kukar.eggs > 0:
+    chick_kukar.get_eggs()
+
+goat_horn = goat()
+goat_horn.name = 'Рога'
+goat_horn.weight = 250
+list_animals.append(goat_horn)
+goat_horn.feed(40)
+goat_horn.get_milk()
+if goat_horn.food < 60:
+    goat_horn.feed(40)
+if goat_horn.milk > 0:
+    goat_horn.get_milk()
+
+goat_hoof = goat()
+goat_hoof.name = 'Копыта'
+goat_hoof.weight = 230
+list_animals.append(goat_hoof)
+if goat_hoof.food < 60:
+    goat_hoof.feed(40)
+if goat_hoof.milk > 0:
+    goat_hoof.get_milk()
+
+def sum_weight(your_list):
+    summ = 0
+    for animal in your_list:
+        summ += animal.weight
+    print(f'Общий вес всех животныъ равен: {summ}')
+
+def max_weight(your_list):
+    maximum = 0
+    for animal in your_list:
+        if animal.weight > maximum:
+            maximum = animal.weight
+    list_max_weight = []
+    for animal in your_list:
+        if animal.weight == maximum:
+            list_max_weight.append(animal.name)
+    print(f'Животные с макс. весом: {list_max_weight}')
+
+
+
+sum_weight(list_animals)
+max_weight(list_animals)
